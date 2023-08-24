@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../component/Header'
+import Headers from '../component/Headers'
 import Slide from '../component/Slide'
 import Footer from '../component/Footer'
 import Job from '../component/Job'
@@ -8,7 +8,7 @@ import Job from '../component/Job'
 const Home = () => {
   return (
     <>
-    <Header />
+    <Headers />
     <Slide />
     <Job />
     <Footer />

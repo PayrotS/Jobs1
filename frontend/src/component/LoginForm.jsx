@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import ui from '../asset/UUI.png';
-import {HiOutlineUserCircle} from 'react-icons/hi'
-import {RiLockPasswordLine} from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import { HiOutlineUserCircle } from 'react-icons/hi';
+import { RiLockPasswordLine } from 'react-icons/ri';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate()
+  
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -15,14 +18,49 @@ const LoginForm = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
-  const handleSubmit = (e) => {
+  
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Username:', username);
     console.log('Password:', password);
-    setUsername('');
-    setPassword('');
+  
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/token/', {
+        username,
+        password,
+      });
+    
+      if (response.status === 200) {
+        const token = response.data.token;
+        localStorage.setItem('token', token);  
+        const headers = {
+          Authorization: `Bearer ${token}`,
+        };
+    
+        console.log('Token stored in localStorage:', token);
+
+        navigate('/');
+      }
+    
+      console.log('Response data:', response.data);
+    
+    } catch (error) {
+      if (error.response) {
+        console.error('Request made, but got an error response:', error.response.data);
+        setErrorMessage('Username or password is incorrect'); // Set pesan kesalahan
+      } else if (error.request) {
+        console.error('Request made, but no response received:', error.request);
+      } else {
+        console.error('Error setting up the request:', error.message);
+      }
+    }
+
+    
+    
+    
   };
+  
 
   return (
     <div className='bg-[#213e92] min-h-screen flex items-center justify-center '>
@@ -67,12 +105,16 @@ const LoginForm = () => {
                 />
               </div>
             </div>
-            <Link
-              to="/"
-              className='bg-[#213e92] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-            >
-              Login
-            </Link>
+            {errorMessage && (
+             <p className='text-red-500 mb-2'>{errorMessage}</p>
+            )}
+              <button
+                type='submit'
+                className='bg-[#213e92] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+              >
+                Login
+              </button>
+        
           </form>
         </div>
       </div>

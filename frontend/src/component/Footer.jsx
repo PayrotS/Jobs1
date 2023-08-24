@@ -40,10 +40,12 @@ const Footer = () => {
             </a>
             </div>
           </div>
-          <div className='flex flex-col ml-'>
+          <div>
+          <div className='flex flex-col ml-8'>
            <a href="/" className='text-white '>Home</a>
            <a href="/Tentang" className='text-white '>Tentang Kami</a>
            <a href="/Kontak" className='text-white '>Kontak</a>
+          </div>
           </div>
         </div>
       </footer>
