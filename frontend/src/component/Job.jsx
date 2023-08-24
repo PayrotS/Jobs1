@@ -16,10 +16,10 @@ function Jobs() {
   }, []);
 
   return (
-    <div className='grid grid-cols-2 gap-2'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
   {jobData.map((job, index) => (
     <div className='' key={index}>
-      <div className='w-auto h-80 bg-[#FBFBFB] p-4 mx-16 border-l-4 border-indigo-500 rounded-lg mb-5 relative'>
+      <div className='w-64 h-80 bg-[#FBFBFB] p-4 mx-12 md:mx-16 border-l-4 border-indigo-500 rounded-lg mb-5 relative md:w-auto md:p-2'>
         <img src={Ui} alt="" className='w-auto h-10 mb-3'/>
         <p className='text-lg text-blue-700 font-semibold'>{job.judul}</p>
         <p className='text-gray-500'>

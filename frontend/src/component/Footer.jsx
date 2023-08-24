@@ -8,13 +8,13 @@ import { FaTwitterSquare } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className='bg-[#2E3192] w-full h-full'>
-      <footer className='max-w-md mx-auto md:max-w-7xl sm:mt-6'>
-        <div className='flex items-center'>
+    <div className='bg-[#2E3192] w-full h-auto'>
+      <footer className='max-w-md mx-auto md:max-w-7xl md:mt-6'>
+        <div className='md:flex md:items-center '>
           <div className=''>
-            <img src={UI} alt="" className='w-auto h-40 my-20 mx-16' />
+            <img src={UI} alt="" className='w-auto h-40 md:my-20 md:mx-16 my-16 mx-32' />
           </div>
-          <div className='flex flex-col border-l  pr-5'>
+          <div className='flex flex-col md:border-l  pr-5'>
             <p className='text-white ml-4 mt-1'>
               Fakultas Ilmu Komputer Universitas Indonesia
             </p>
@@ -41,10 +41,10 @@ const Footer = () => {
             </div>
           </div>
           <div>
-          <div className='flex flex-col ml-8'>
-           <a href="/" className='text-white '>Home</a>
-           <a href="/Tentang" className='text-white '>Tentang Kami</a>
-           <a href="/Kontak" className='text-white '>Kontak</a>
+          <div className='md:flex md:flex-col ml-8'>
+           <a href="/" className='text-white p-5'>Home</a>
+           <a href="/Tentang" className='text-white p-5 '>Tentang Kami</a>
+           <a href="/Kontak" className='text-white  p-5'>Kontak</a>
           </div>
           </div>
         </div>

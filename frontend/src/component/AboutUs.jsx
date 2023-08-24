@@ -12,7 +12,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className="text-center my-20">
-        <p className='text-center mx-40'>
+        <p className='text-center md:mx-40 mx-2'>
           Fasilkom UI merupakan salah satu institusi pendidikan tinggi terbaik di dunia dalam bidang
           ilmu komputer dan sistem informasi. Dengan riset yang mutakhir, start-up inovatif,
           ambisi yang besar, pembelajaran yang hands-on, dan robot-robot pintar,
@@ -23,7 +23,7 @@ const AboutUs = () => {
       <img src={sej} alt="" className="object-cover brightness-50 h-96 w-full" />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold text-white mb-4 border-b-4 border-white pb-4">Sejarah</h1>
-        <p className="text-center text-white mx-40">
+        <p className="text-center text-white md:mx-40 mx-2">
         Fakultas Ilmu Komputer UI (Fasilkom) berdiri sejak tahun 1993. Sebelum pendiriannya, 
         namanya masih pendidikan Ilmu Komputer yang kegiatannya terpusat di Pusat Ilmu Komputer (Pusilkom) UI. 
         Pendirian Fasilkom UI tidak dapat dipisahkan dari pendirian Pusilkom UI pada tahun 1972.
